@@ -1,0 +1,35 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas</title>
+</head>
+
+<body>
+  <div>
+    <canvas id="canvas" width="500" height="500">当前浏览器不支持canvas</canvas>
+  </div>
+</body>
+<style>
+  canvas {
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+  }
+</style>
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  var gradient1 = ctx.createLinearGradient(10, 10, 400, 10);
+  gradient1.addColorStop(0, "#00ff00");
+  gradient1.addColorStop(1, "#ff0000");
+
+  ctx.beginPath()
+  ctx.fillStyle = gradient1;
+  ctx.fillRect(10, 10, 400, 100);
+
+
+</script>
+
+</html>
