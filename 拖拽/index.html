@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽</title>
+</head>
+
+<body>
+  <div>
+    <canvas id="canvas" width="500" height="500">当前浏览器不支持canvas</canvas>
+  </div>
+</body>
+<style>
+  canvas {
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #ccc;
+  }
+</style>
+<script>
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  function drewRadio(x, y, radius = 10) {
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  let isDraw = false;
+  canvas.onmousedown = function () {
+    isDraw = true;
+  }
+  document.onmouseup = function () {
+    isDraw = false;
+  }
+
+  canvas.onmousemove = function (e) {
+    if (isDraw) {
+      let x = e.clientX;
+      let y = e.clientY;
+      drewRadio(x ,y)
+    }
+  }
+
+
+
+
+  drewRadio(50, 50)
+  
+
+
+</script>
+
+</html>
